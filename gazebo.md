@@ -1,5 +1,5 @@
 ## 如何使用GAZEBO中的插件
-  在gazebo中加入一些插件可以用来**仿真机器人的传感器、执行器的特性**,方法是通过<gazebo>元素中的<plugin>标签描述
+  在gazebo中加入一些插件可以用来**仿真机器人的传感器、执行器的特性**,方法是通过```<gazebo>```元素中的```<plugin>```标签描述
 ```	
 
 <gazebo reference="your_link_name">
