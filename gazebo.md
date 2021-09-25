@@ -92,3 +92,32 @@ rrbot:
 
 ```
 ** 使用rostopic pub -1...  发送命令，或者使用rqt发送
+* urdf文件详解
+** [见csdn收藏夹](https://blog.csdn.net/qq_16775293/article/details/88379988)
+** joint元素的type标签
+*** revelote  可以绕着一个轴旋转的**铰链关节，有最大值和最小值限制**。
+*** continuous 连续的铰链关节，可以绕一个轴旋转，**没有最大值和最小值限制**
+
+*** prismatic 滑动关节，可以沿着一个轴滑动，没有最大值和最小值限制
+*** fixed 不实际的关节，无法运动，自由度被锁定。这种类型的关节不需要指定轴、动力学特征、标度和最大值最小值限制
+*** floating 6自由度的关节
+*** planar 该关节在一个平面内运动，垂线是运动轴
+* unitree_a1仿真模型的一些参数
+** hip关节的扭矩、速度和位置限制
+*** max torque : 33.5
+*** max velocity : 21
+*** 位置：[-46,46],(单位：度)
+** thigh关节的扭矩、速度和位置限制
+*** max torque : 33.5
+*** max velocity : 21
+*** 位置：[-60,240],(单位：度)
+** calf关节的扭矩、速度和位置限制
+*** max torque : 33.5
+*** max velocity : 21
+*** 位置：[-154.5,-52.5],(单位：度)
+** 部件的重量
+*** trunk: 6.0
+*** hip: 0.696
+*** thigh: 1.013
+*** calf: 0.166
+** 其余参数见a1_description/urdf/const.xacro
