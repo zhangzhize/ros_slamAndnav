@@ -52,7 +52,8 @@
 >```<type>```:传输类型。该插件当前仅实现了“transmission_interface/SimpleTransmission",不要更改  
 >```<hardwareInterface>```:在```<actuator>```和```<joint>```标签中，即要加载的硬件接口（位置，速度或力矩接口）。当前仅实现了EffortJointInterface这一功能，不要更改
 	
-	* 2.添加gazebo_ros_control插件
+* 2.添加gazebo_ros_control插件 
+
 ```
 <gazebo>
 	<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -61,12 +62,14 @@
 <gazebo>
 ```
 
-		* ```<robotNamespace>```:用于当前插件实例化的ROS命名空间，默认为urdf/sdf中机器人的名称
-		* ```<controlPeriod>```:控制器的更新周期(单位秒)，默认为gazebo的周期
-		* ```<robotParam>```:urdf文件在参数服务器上的位置，默认为‘/robot_description’
-		* ```<robotSimType>```:自定义的机器人仿真接口的pluginlib名称，默认为'DefaultRobotHWsim'
+> ```<robotNamespace>```:用于当前插件实例化的ROS命名空间，默认为urdf/sdf中机器人的名称  
+>```<controlPeriod>```:控制器的更新周期(单位秒)，默认为gazebo的周期  
+> ```<robotParam>```:urdf文件在参数服务器上的位置，默认为‘/robot_description’  
+>```<robotSimType>```:自定义的机器人仿真接口的pluginlib名称，默认为'DefaultRobotHWsim'  
+	
 * 创建.yaml配置文件
 	* PID系数和控制器配置必须保存在yaml文件中，通过launch文件加载到参数服务器中。
+	
 ```
 rrbot:
 	joint_state_controller:
@@ -79,6 +82,7 @@ rrbot:
 ```
 
 	* 创建launch文件
+	
 ```
 <launch>
 
