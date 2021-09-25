@@ -48,9 +48,10 @@
 	</actuator>
 </transmission>
 ```
-		* ```<joint name="">```:必须为对应urdf中定义的关节名称
-		* ```<type>```:传输类型。该插件当前仅实现了“transmission_interface/SimpleTransmission",不要更改
-		* ```<hardwareInterface>```:在```<actuator>```和```<joint>```标签中，即要加载的硬件接口（位置，速度或力矩接口）。当前仅实现了EffortJointInterface这一功能，不要更改
+> ```<joint name="">```:必须为对应urdf中定义的关节名称   
+>```<type>```:传输类型。该插件当前仅实现了“transmission_interface/SimpleTransmission",不要更改  
+>```<hardwareInterface>```:在```<actuator>```和```<joint>```标签中，即要加载的硬件接口（位置，速度或力矩接口）。当前仅实现了EffortJointInterface这一功能，不要更改
+	
 	* 2.添加gazebo_ros_control插件
 ```
 <gazebo>
