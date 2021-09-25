@@ -35,7 +35,7 @@
 		* position_velocity_acceleration_controller
 
 * 使用ros_controller
-** 1.在urdf中添加```<transmission>```元素，eg：
+	* 1.在urdf中添加```<transmission>```元素，eg：
 ```
 <transmission name="simple_trans">
 	<type>transmission_interface/SimpleTransmission</type>
@@ -48,10 +48,10 @@
 	</actuator>
 </transmission>
 ```
-*** ```<joint name="">```:必须为对应urdf中定义的关节名称
-*** ```<type>```:传输类型。该插件当前仅实现了“transmission_interface/SimpleTransmission",不要更改
-*** ```<hardwareInterface>```:在```<actuator>```和```<joint>```标签中，即要加载的硬件接口（位置，速度或力矩接口）。当前仅实现了EffortJointInterface这一功能，不要更改
-** 2.添加gazebo_ros_control插件
+		* ```<joint name="">```:必须为对应urdf中定义的关节名称
+		* ```<type>```:传输类型。该插件当前仅实现了“transmission_interface/SimpleTransmission",不要更改
+		* ```<hardwareInterface>```:在```<actuator>```和```<joint>```标签中，即要加载的硬件接口（位置，速度或力矩接口）。当前仅实现了EffortJointInterface这一功能，不要更改
+	* 2.添加gazebo_ros_control插件
 ```
 <gazebo>
 	<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -60,12 +60,12 @@
 <gazebo>
 ```
 
-*** ```<robotNamespace>```:用于当前插件实例化的ROS命名空间，默认为urdf/sdf中机器人的名称
-*** ```<controlPeriod>```:控制器的更新周期(单位秒)，默认为gazebo的周期
-*** ```<robotParam>```:urdf文件在参数服务器上的位置，默认为‘/robot_description’
-*** ```<robotSimType>```:自定义的机器人仿真接口的pluginlib名称，默认为'DefaultRobotHWsim'
+		* ```<robotNamespace>```:用于当前插件实例化的ROS命名空间，默认为urdf/sdf中机器人的名称
+		* ```<controlPeriod>```:控制器的更新周期(单位秒)，默认为gazebo的周期
+		* ```<robotParam>```:urdf文件在参数服务器上的位置，默认为‘/robot_description’
+		* ```<robotSimType>```:自定义的机器人仿真接口的pluginlib名称，默认为'DefaultRobotHWsim'
 * 创建.yaml配置文件
-** PID系数和控制器配置必须保存在yaml文件中，通过launch文件加载到参数服务器中。
+	* PID系数和控制器配置必须保存在yaml文件中，通过launch文件加载到参数服务器中。
 ```
 rrbot:
 	joint_state_controller:
@@ -77,7 +77,7 @@ rrbot:
 		pid:{p:100,i:0.01,d:10.0}
 ```
 
-** 创建launch文件
+	* 创建launch文件
 ```
 <launch>
 
@@ -98,33 +98,32 @@ rrbot:
 
 ```
 
-** 使用rostopic pub -1...  发送命令，或者使用rqt发送
+	* 使用rostopic pub -1...  发送命令，或者使用rqt发送
 * urdf文件详解
-** [见csdn收藏夹](https://blog.csdn.net/qq_16775293/article/details/88379988)
-** joint元素的type标签
-*** revelote  可以绕着一个轴旋转的**铰链关节，有最大值和最小值限制**。
-*** continuous 连续的铰链关节，可以绕一个轴旋转，**没有最大值和最小值限制**
-
-*** prismatic 滑动关节，可以沿着一个轴滑动，没有最大值和最小值限制
-*** fixed 不实际的关节，无法运动，自由度被锁定。这种类型的关节不需要指定轴、动力学特征、标度和最大值最小值限制
-*** floating 6自由度的关节
-*** planar 该关节在一个平面内运动，垂线是运动轴
+	* [见csdn收藏夹](https://blog.csdn.net/qq_16775293/article/details/88379988)
+	* joint元素的type标签
+	* revelote  可以绕着一个轴旋转的**铰链关节，有最大值和最小值限制**。
+	* continuous 连续的铰链关节，可以绕一个轴旋转，**没有最大值和最小值限制**
+	* prismatic 滑动关节，可以沿着一个轴滑动，没有最大值和最小值限制
+	* fixed 不实际的关节，无法运动，自由度被锁定。这种类型的关节不需要指定轴、动力学特征、标度和最大值最小值限制
+	* floating 6自由度的关节
+	* planar 该关节在一个平面内运动，垂线是运动轴
 * unitree_a1仿真模型的一些参数
-** hip关节的扭矩、速度和位置限制
-*** max torque : 33.5
-*** max velocity : 21
-*** 位置：[-46,46],(单位：度)
-** thigh关节的扭矩、速度和位置限制
-*** max torque : 33.5
-*** max velocity : 21
-*** 位置：[-60,240],(单位：度)
-** calf关节的扭矩、速度和位置限制
-*** max torque : 33.5
-*** max velocity : 21
-*** 位置：[-154.5,-52.5],(单位：度)
-** 部件的重量
-*** trunk: 6.0
-*** hip: 0.696
-*** thigh: 1.013
-*** calf: 0.166
-** 其余参数见a1_description/urdf/const.xacro
+	* hip关节的扭矩、速度和位置限制
+		* max torque : 33.5
+		* max velocity : 21
+		* 位置：[-46,46],(单位：度)
+	* thigh关节的扭矩、速度和位置限制
+		* max torque : 33.5
+		* max velocity : 21
+		* 位置：[-60,240],(单位：度)
+	* calf关节的扭矩、速度和位置限制
+		* max torque : 33.5
+		* max velocity : 21
+		* 位置：[-154.5,-52.5],(单位：度)
+	* 部件的重量
+		* trunk: 6.0
+		* hip: 0.696
+		* thigh: 1.013
+		* calf: 0.166
+	* 其余参数见a1_description/urdf/const.xacro
