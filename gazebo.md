@@ -35,7 +35,7 @@
 		* position_velocity_acceleration_controller
 
 * 使用ros_controller
-	* 1.在urdf中添加```<transmission>```元素，eg：
+1.在urdf中添加```<transmission>```元素，eg：
 ```
 <transmission name="simple_trans">
 	<type>transmission_interface/SimpleTransmission</type>
@@ -52,7 +52,7 @@
 >```<type>```:传输类型。该插件当前仅实现了“transmission_interface/SimpleTransmission",不要更改  
 >```<hardwareInterface>```:在```<actuator>```和```<joint>```标签中，即要加载的硬件接口（位置，速度或力矩接口）。当前仅实现了EffortJointInterface这一功能，不要更改
 	
-* 2.添加gazebo_ros_control插件 
+2.添加gazebo_ros_control插件 
 
 ```
 <gazebo>
@@ -68,7 +68,7 @@
 >```<robotSimType>```:自定义的机器人仿真接口的pluginlib名称，默认为'DefaultRobotHWsim'  
 	
 * 创建.yaml配置文件
-	* PID系数和控制器配置必须保存在yaml文件中，通过launch文件加载到参数服务器中。
+1. PID系数和控制器配置必须保存在yaml文件中，通过launch文件加载到参数服务器中。
 	
 ```
 rrbot:
@@ -80,7 +80,7 @@ rrbot:
 		joint:joint1
 		pid:{p:100,i:0.01,d:10.0}```
 
-	* 创建launch文件
+2. 创建launch文件
 
 ```
 <launch>
@@ -102,7 +102,7 @@ rrbot:
 
 ```
 
-	* 使用rostopic pub -1...  发送命令，或者使用rqt发送
+3.使用rostopic pub -1...  发送命令，或者使用rqt发送
 * urdf文件详解
 	* [见csdn收藏夹](https://blog.csdn.net/qq_16775293/article/details/88379988)
 	* joint元素的type标签
