@@ -17,19 +17,23 @@
 *** joint_effort_controller
 *** joint_position_controller
 *** joint_velocity_controller
+
 ** joint_state_controller:读取所有关节位置
 ** position_controllers:一次设置一个或多个关节位置
 *** joint_position_controller
 *** joint_group_position_controller
+
 ** velocity_controllers:一次设置一个或多个关节速度
 *** joint_velocity_controller
 *** joint_group_velocity_controller
+
 ** joint_trajectory_controllers:用于为整个轨迹加附加功能
 *** position_controller
 *** velocity_controller
 *** effort_controller
 *** position_velocity_controller
 *** position_velocity_acceleration_controller
+
 * 使用ros_controller
 ** 1.在urdf中添加```<transmission>```元素，eg：
 ```
@@ -44,7 +48,7 @@
 	</actuator>
 </transmission>
 ```
-  *** ```<joint name="">```:必须为对应urdf中定义的关节名称
+*** ```<joint name="">```:必须为对应urdf中定义的关节名称
 *** ```<type>```:传输类型。该插件当前仅实现了“transmission_interface/SimpleTransmission",不要更改
 *** ```<hardwareInterface>```:在```<actuator>```和```<joint>```标签中，即要加载的硬件接口（位置，速度或力矩接口）。当前仅实现了EffortJointInterface这一功能，不要更改
 ** 2.添加gazebo_ros_control插件
