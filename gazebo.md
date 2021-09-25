@@ -78,10 +78,10 @@ rrbot:
 	joint_state_controller:
 		type:effort_controllers/JointPositionController
 		joint:joint1
-		pid:{p:100,i:0.01,d:10.0}```
-
+		pid:{p:100,i:0.01,d:10.0}
+```
+	
 2. 创建launch文件
-
 ```
 <launch>
 
