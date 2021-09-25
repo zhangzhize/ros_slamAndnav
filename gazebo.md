@@ -13,26 +13,26 @@
 * ros_control是一个**功能包**，是通过重写ros原有的pr2_mechanism包，进行推广，使得可以控制所有机器人
 * ros_control以执行器**关节状态数据**和**期望**为输入，使用一般的反馈控制机制（通常PID），来进行控制输出（通常为力矩）
 * ros_controllers:包含有可用的插件列表。主要实现**PID控制**，完成速度、位置等闭环控制，**指令发至gazebo或实体机器人**。可以自己编写代码创建控制插件。
-	** effort_controllers:通过一个**期望扭矩/力矩**控制关节，包含的接口有：
-		*** joint_effort_controller
-		*** joint_position_controller
-		*** joint_velocity_controller
+	* effort_controllers:通过一个**期望扭矩/力矩**控制关节，包含的接口有：
+		* joint_effort_controller
+		* joint_position_controller
+		* joint_velocity_controller
 
-	** joint_state_controller:读取所有关节位置
-	** position_controllers:一次设置一个或多个关节位置
-		*** joint_position_controller
-		*** joint_group_position_controller
+	* joint_state_controller:读取所有关节位置
+	* position_controllers:一次设置一个或多个关节位置
+		* joint_position_controller
+		* joint_group_position_controller
 
-	** velocity_controllers:一次设置一个或多个关节速度
-		*** joint_velocity_controller
-		*** joint_group_velocity_controller
+	* velocity_controllers:一次设置一个或多个关节速度
+		* joint_velocity_controller
+		* joint_group_velocity_controller
 
-	** joint_trajectory_controllers:用于为整个轨迹加附加功能
-		*** position_controller
-		*** velocity_controller
-		*** effort_controller
-		*** position_velocity_controller
-		*** position_velocity_acceleration_controller
+	* joint_trajectory_controllers:用于为整个轨迹加附加功能
+		* position_controller
+		* velocity_controller
+		* effort_controller
+		* position_velocity_controller
+		* position_velocity_acceleration_controller
 
 * 使用ros_controller
 ** 1.在urdf中添加```<transmission>```元素，eg：
